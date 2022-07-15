@@ -1,5 +1,7 @@
 import React from 'react'
 import Projects from './Projects'
+import Project2 from './Project2'
+import Project3 from './Project3'
 const Productlist = () => {
   return (
 <div className='pl'>
@@ -11,7 +13,10 @@ const Productlist = () => {
      </div>
     <div className="pl-list">
     <Projects/>
+    <Project2/>
+    <Project3/>
     </div>
+
 </div>
   )
 }

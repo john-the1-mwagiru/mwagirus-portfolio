@@ -7,7 +7,8 @@ const Contact = () => {
   const[firstname,setFirstName]=useState("");
   const[email,setEmail]=useState("");
   const[message,setMessage]=useState("");
-  const [errors,setErrors]=useState({})
+  const [errors,setErrors]=useState({});
+  const[success,setSuccess]=useState(true);
   
   const form = useRef();
 
@@ -22,7 +23,7 @@ const Contact = () => {
       });
       setErrors(Validation(firstname,email,message));
       if(firstname&&message&&(/\S+@\S+\.\S+/.test(email))){
-        alert("Message Sent")
+        setSuccess(!success);
       }
      setFirstName("");
      setEmail("");
@@ -62,7 +63,8 @@ const Contact = () => {
                <div>
                 <button>Submit</button>
                </div>
-        
+               {!success && <span className="success">Message Sent✔️</span>}
+              
         </form>
 
              <div className="socials">

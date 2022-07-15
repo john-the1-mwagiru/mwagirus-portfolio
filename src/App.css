@@ -9,7 +9,7 @@
     display: flex;
     height:100vh;
     gap:0px;
-    background-color: aqua;
+    background-color:hsl(0, 0%, 50%);
 
 }
 .i-left{
@@ -20,6 +20,7 @@
 }
 .i-right{
     flex:1;
+    width: 100%;
 }
 .i-left-wrapper{
     padding: 50px;
@@ -56,6 +57,7 @@
   width:100%;  
   height: 100%;
   object-fit: cover;
+  z-index: 99;
 }
 /*product list*/
 .pl{
@@ -65,7 +67,7 @@
     align-items: center;
     text-align: center;
     display: flex;
-     margin-bottom: 190px;
+    margin-bottom: 190px;
 }
 .pl-title{
     font-size: 40px;
@@ -81,8 +83,8 @@
     justify-content: space-between;
 }
 .p{
-    width: 300px;
-    height: fit-content;
+    width: 400px;
+    height: 200px;
     margin: 20px 10px;
     border:2px solid rgb(243,242,242);
     border-radius: 5px;
@@ -91,11 +93,10 @@
 }
 .p-img{
     width:100%;
+    height: 70%;
     transition: 0.4s;
 }
-.p-img:hover{
-    transform: scale(1.1);
-}
+
 /*contacts page*/
 .c{
     height: 100vh;
@@ -148,6 +149,10 @@ input{
     font-size: 14px;
     padding-left: 10px;
 }
+input:focus { 
+    outline: none !important;
+    border-color: green;
+}
 textarea{
     width:100%;
     margin: 20px 10px;
@@ -155,6 +160,11 @@ textarea{
     padding-left: 10px;
     height: 100px;
     border-top: 1px solid;
+    border-radius: 5px;
+}
+textarea:focus{
+    outline: none !important;
+    border-color: green;
 }
 button{
     border: none;
@@ -163,6 +173,7 @@ button{
     color:white;
     font-weight: 500;
     cursor: pointer;
+    border-radius: 6px;
 }
 .errors{
     display: flex;
@@ -189,32 +200,67 @@ span{
 .tw-icon{
     width:50px;
     border-radius: 6px;
-    transition: 0.4s;
 }
-.tw-icon:hover{
-    transform: scale(0.9);
-}
+
 .ig-icon{
     width:50px;
     border-radius: 6px;
-    transition: 0.4s;
 }
-.ig-icon:hover{
-    transform: scale(0.9);
 
-}
 .git-icon{
     width:50px;
     border-radius: 6px;
-    transition: 0.4s;
-
 }
-.git-icon:hover{
-    transform: scale(0.9);
+.success{
+    color: green;
+    font-weight: 800;
+}
+/*media query*/
+@media screen and (min-width:769px) {
+    .pl{
+        display: flex;
+        align-items: center;
+    }
+    .pl-list{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .i-img{
+        width: 100%;
+    }
+}
+@media screen and (max-width:768px) {
+    .i{
+        flex-direction: column;
+        height: 80%;
+    }
+  
+    .i-left{
 
+        padding: 60px;
+        gap:1rem;
+        height: 50%;
+
+    }
+    .i-right{
+        height: 50%;
+    }
+    .pl{
+       display: flex;
+       justify-content: center; 
+
+    }
+    .pl-list{
+        display: flex;
+        justify-content: center;
+    }
+   .c-wrapper{
+    flex-direction: column;
+   }
 }
 
-@media screen and (max-width: 480px)   {
+@media screen and (max-width: 486px)   {
     .i{
         flex-direction: column;
         height: 80%;
@@ -232,10 +278,22 @@ span{
         height: 80%;
     }
     .pl{
+        display: flex;
         flex-direction: column;
         margin-top: 2px;
         display: block;
-        margin-left: 10px;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    .pl-list{
+        width: 180px;
+        
+    }
+    .p{
+        width: 400px;
+    }
+    .p-img{
+      height: 60%;
     }
     .pl-title{
         font-size: 30px;
@@ -266,6 +324,7 @@ span{
         margin: 10px;
         margin-left: 0;
     }
+   
     textarea{
         width:80%;
     }
@@ -279,20 +338,9 @@ span{
     width: 90%;
    }
 }
-@media screen and (max-width:768px) {
-    .i{
-        flex-direction: column;
-        height: 80%;
+@media screen and (max-width:290px) {
+    .pl-list{
+        position: relative;
+        left: -20px;
     }
-  
-    .i-left-wrapper{
-        padding: 60px;
-        gap:1rem;
-        height: 80%;
-
-    }
-    
-   .c-wrapper{
-    flex-direction: column;
-   }
 }
